@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>DrumKit</title>
+</head>
+
+<body>
+  <h1>Drum Kit</h1>
+  <div id="sounds">
+    <div data-key="a" data-name="kick">
+      <span>Kick</span>
+      <kbd>A</kbd>
+    </div>
+    <div data-key="s" data-name="snare">
+      <span>Snare</span>
+      <kbd>S</kbd>
+    </div>
+    <div data-key="d" data-name="clap">
+      <span>Clap</span>
+      <kbd>D</kbd>
+    </div>
+    <div data-key="f" data-name="hihat">
+      <span>HiHat</span>
+      <kbd>F</kbd>
+    </div>
+    <div data-key="g" data-name="openhihat">
+      <span>Open HiHat</span>
+      <kbd>G</kbd>
+    </div>
+    <div data-key="h" data-name="ride">
+      <span>Ride</span>
+      <kbd>H</kbd>
+    </div>
+    <div data-key="j" data-name="rim">
+      <span>Rim</span>
+      <kbd>J</kbd>
+    </div>
+    <div data-key="k" data-name="clave">
+      <span>Clave</span>
+      <kbd>K</kbd>
+    </div>
+    <div data-key="l" data-name="bassdrop">
+      <span>BassDrop</span>
+      <kbd>L</kbd>
+    </div>
+  </div>
+
+  <script>
+    const folder = '808';
+    let audio = null;
+    document.addEventListener('keydown', (e) => {
+      if (audio) return;
+
+      const span = document.querySelector(`#sounds [data-key=${e.key}]`);
+      const soundName = span.dataset.name;
+      audio = new Audio(`./sounds/${folder}/${soundName}.wav`)
+
+      span.classList.add('active')
+      audio.play();
+    });
+    document.addEventListener('keyup', (e) => {
+      if (audio) {
+        audio.pause();
+        audio = null;
+      }
+    });
+
+    //remove active when transition ends
+    const soundDivs = document.querySelectorAll('#sounds div');
+    soundDivs.forEach(div => div.addEventListener('transitionend', function (e) {
+      this.classList.remove('active')
+    }));
+
+  </script>
+</body>
+
+</html>

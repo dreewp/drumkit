@@ -1,0 +1,49 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  text-transform: uppercase;
+  text-shadow: 0 0 0.2em black;
+
+  background-image: url('./images/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+#sounds {
+  display: flex;
+  width: 100vw;
+  justify-content: space-around;
+}
+
+#sounds div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+
+  width: 4em;
+  height: 4em;
+  border: 2px solid #fff;
+  padding: 1em;
+  flex-wrap: nowrap;
+  transition: all 0.1s linear;
+}
+
+#sounds div.active {
+  border: 5px solid yellowgreen;
+  color: yellowgreen;
+  box-shadow: 0 0 1em yellowgreen;
+}
