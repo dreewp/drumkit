@@ -24,18 +24,20 @@ h1 {
 #sounds {
   display: flex;
   width: 100vw;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 #sounds div {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   text-align: center;
+  margin: 1em;
 
-  width: 4em;
-  height: 4em;
+  background: rgba(0, 0, 0, 0.4);
+  width: 5em;
+  height: 5em;
   border: 2px solid #fff;
   padding: 1em;
   flex-wrap: nowrap;
